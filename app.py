@@ -21,7 +21,10 @@ if st.button("Analyze Stock"):
             st.error("No data found")
         else:
             st.success("Data loaded successfully")
-            st.line_chart(data["Close"])
+
+            close_prices = data["Close"].squeeze()
+            st.line_chart(close_prices)
+  
 
     except Exception as e:
         st.error(str(e))
